@@ -16,12 +16,14 @@
             <% end %>
           </td>
           <td><%= link_to @book.title, @book %></td>
-          <td>コメント数： <%= @book.book_comments.count %></td>
           <td><%= @book.body %></td>
           <th><%= render'favorites/favorite', book: @book  %></th>
+          <td>コメント数： <%= @book.book_comments.count %></td>
+          <!--td><!--%= @book.body %></td.  19行目へ移動-->
+          <!--th><!--%= render'favorites/favorite', book: @book  %></th.   20行目へ移動-->
              <% if @book.user == current_user %>
-             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
-             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>  <!--edit_book_#{@book.id}を追加-->
+             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>  <!-- destroy_book_#{@book.id}を追加 -->
              <% end %>
         </tr>
       </table>
