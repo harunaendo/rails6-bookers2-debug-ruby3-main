@@ -1,6 +1,6 @@
 <!--%= form_with model: [book, book_comment] do |f| %-->
-<%= form_with(model:[book, book_comment], local: true) do |f| %>
+<%= form_with(model:[book, book_comment], local: false) do |f| %> <!--非同期通信でtrueからfalseに-->
 
-  <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに", class: "w-100"%>
+  <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに", class: "w-100", id: "comment_textarea" %> <!--非同期通信id以降追加-->
   <%= f.submit "送信" %>
 <% end %>

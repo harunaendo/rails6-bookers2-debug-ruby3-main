@@ -4,12 +4,12 @@ class BookCommentsController < ApplicationController
     comment = current_user.book_comments.new(book_comment_params)
     comment.book_id = book.id
     comment.save
-    redirect_to request.referer #元のページにリダイレクト
+    #redirect_to request.referer #元のページにリダイレクトから非同期通信で削除
   end
   
   def destroy
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
-    redirect_to request.referer
+    #redirect_to request.referer
   end
   
   private
